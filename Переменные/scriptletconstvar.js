@@ -13,10 +13,10 @@ console.log(price2);  /*В консоли мы увидим ошибку: Uncaug
 
 
 
-let x = 1;
-let x = 2;      // Что мы увидим в консоли:  Uncaught SyntaxError: Identifier 'x' has already been declared
+// let x = 1;
+// let x = 2;      // Что мы увидим в консоли:  Uncaught SyntaxError: Identifier 'x' has already been declared
 
-const y = 3;
-const y = 4;    // Что мы увидим в консоли:  Uncaught SyntaxError: Identifier 'y' has already been declared
+// const y = 3;
+// const y = 4;    // Что мы увидим в консоли:  Uncaught SyntaxError: Identifier 'y' has already been declared
 
 // Ошибка происходит из-за того, что невозможно повторно объявить переменную, объявленную с помощью let и const, в одной и той же области видимости.
