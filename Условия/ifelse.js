@@ -33,8 +33,8 @@ if (indexBMI >= 40) {
 */
 
 
-let weight = prompt("Введите ваш вес в Килограммах:");
-let height = prompt("Введите ваш рост в Метрах(например: 1.65):");
+let weight = prompt("Введите ваш вес в Килограммах:", 60);
+let height = prompt("Введите ваш рост в Метрах", 1.65);
 
 let bmi = weight / height ** 2;
 
