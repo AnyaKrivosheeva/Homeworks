@@ -61,17 +61,32 @@ console.log(arr2); // [0, 1, 2, 3, 4, 5, 6, 7, 8]
 // 5. Используй оператор `rest` для создания функции, 
 // которая принимает объект с параметрами и возвращает новый объект без одного указанного параметра.
 
-const obj1 = { a: 1, b: 2, c: 3 };
+// const obj1 = { a: 1, b: 2, c: 3 };
 
-function destructuring({ b, ...obj2 }) {
-    console.log(b);
-    console.log(obj2);
+// function destructuring({ b, ...obj2 }) {
+//     console.log(b);
+//     console.log(obj2);
+// }
+
+// destructuring(obj1);
+// // 2
+// // {a: 1, c: 3}
+// console.log(obj1); // {a: 1, b: 2, c: 3}
+
+
+const user5 = {
+    city: "London",
+    name: "Bob",
+    age: 28,
+    country: "USA",
+};
+
+function getNewObject(user5, key) {
+    const { [key]: deleted, ...rest } = user5;
+    return rest;
 }
 
-destructuring(obj1);
-// 2
-// {a: 1, c: 3}
-console.log(obj1); // {a: 1, b: 2, c: 3}
+console.log(getNewObject(user5, "country"));  // {city: 'London', name: 'Bob', age: 28}
 
 
 
