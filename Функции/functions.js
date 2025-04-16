@@ -33,7 +33,7 @@ function getFirstShortWord(sentence) {
         if (word.length < firstShortWord.length) {         // оно оказывает в переменной firstShortWord
             firstShortWord = word;
         }
-    });
+    })
 
     return firstShortWord;        // возвращаем переменную, в которой содержится самое короткое слово
 }
