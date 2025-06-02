@@ -12,6 +12,17 @@ button.addEventListener("click", () => {
     }
 });
 
+// второй вариант:
+// button.addEventListener("click", () => {
+//     if (button.innerText === "Clicked!") {
+//         button.innerText = "Click me!";
+//         button.style.backgroundColor = "";
+//     } else {
+//         button.innerText = "Clicked!";
+//         button.style.backgroundColor = "red";
+//     }
+// });
+
 
 // 2. Назначь для любого элемента обработчик события mouseover, который будет изменять размер элемента при наведении;
 
@@ -55,7 +66,8 @@ form.addEventListener("keydown", function (event) {
     }
 });
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
     alert("Форма успешно отправлена!");
 });
 
@@ -68,13 +80,17 @@ const change = document.getElementById("change");
 const body = document.querySelector("body");
 
 change.addEventListener("click", () => {
-    if (body.style.backgroundColor === "black" & body.style.color === "white") {
-        body.style.backgroundColor = "";
-        body.style.color = "";
-    } else {
-        body.style.backgroundColor = "black";
-        body.style.color = "white";
-    }
+    body.classList.toggle("active");
 });
+
+// change.addEventListener("click", () => {
+//     if (body.style.backgroundColor === "black" & body.style.color === "white") {
+//         body.style.backgroundColor = "";
+//         body.style.color = "";
+//     } else {
+//         body.style.backgroundColor = "black";
+//         body.style.color = "white";
+//     }
+// });
 
 
