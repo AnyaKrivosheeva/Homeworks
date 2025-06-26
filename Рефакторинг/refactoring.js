@@ -99,32 +99,30 @@ function processOrder(order) {
 
 // рефакторинг 
 
-// order = {
-//   id: 100500,
-//   items: [
-//     {
-//       name: "book1",
-//       price: 100,
-//       quantity: 1,
-//     },
-//     {
-//       name: "book2",
-//       price: 300,
-//       quantity: 1,
-//     },
-//     {
-//       name: "book3",
-//       price: 300,
-//       quantity: 1,
-//     },
-//   ],
-// };
-
-let total = 0;                       // выносим переменную глобально
+order = {
+  id: 100500,
+  items: [
+    {
+      name: "book1",
+      price: 100,
+      quantity: 1,
+    },
+    {
+      name: "book2",
+      price: 300,
+      quantity: 1,
+    },
+    {
+      name: "book3",
+      price: 300,
+      quantity: 1,
+    },
+  ],
+};
 
 function processOrder2(order) {
 
-  calculateTotal(order);                          // подсчет стоимости заказа                
+  let total = calculateTotal(order);                          // подсчет стоимости заказа + заносим значение в переменную               
 
   if (validationOrderData(order) && checkAvailability(order)) {       // если обе функции возвращают true(т.е заказ провалидирован и все товары в наличии),
     console.log('Order processed with total:', total);               // то обрабатываем и выполняем заказ
@@ -140,6 +138,7 @@ function validationOrderData(order) {                                 // Фун�
 };
 
 function calculateTotal(order) {               // Функция рассчета суммы (лучше было бы назвать countTotal, но в этом файле уже есть такая функция)
+  let total = 0;
   for (let item of order.items) {
     total += item.price * item.quantity;
   };
@@ -151,11 +150,10 @@ function checkAvailability(order) {                    // Функция про�
     if (!checkStock(item)) {
       console.log('Item out of stock:', item.name);
       console.log("Order can not be processed");
-      return;
-    } else {
-      return true;
+      return false;
     }
   }
+  return true;
 };
 
 processOrder2(order);
