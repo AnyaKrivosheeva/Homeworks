@@ -48,7 +48,7 @@ let a = 10;
 console.log(b);   // ReferenceError: Cannot access 'b' before initialization
 const b = 20;
 // Переменные, объявленные через let и const, поднимаются, но не инициализируются, поэтому консоль выдает ошибку.
-// Они попадают в временную мёртвую зону (Temporal Dead Zone, TDZ) - область видимости в которой переменная уже существует, но к ней нельзя обратиться.
+// Они попадают во временную мёртвую зону (Temporal Dead Zone, TDZ) - область видимости в которой переменная уже существует, но к ней нельзя обратиться.
 
 
 // Пример с var
@@ -65,7 +65,7 @@ sayHello(); // Hello world!
 function sayHello() {
   console.log("Hello world!");
 };
-// функции, объявленные через function declaration поднимаются полностью, однажды объявив функция мы можем обратиться к ней в любой части нашего кода.
+// функции, объявленные через function declaration поднимаются полностью, однажды объявив функцию мы можем обратиться к ней в любой части нашего кода.
 
 // Пример с function expression 
 greet(); // ReferenceError: Cannot access 'greet' before initialization
