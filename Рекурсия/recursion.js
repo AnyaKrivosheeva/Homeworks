@@ -26,7 +26,7 @@ function findMax(arr) {
         return arr[0];
     }
 
-    return Math.max(arr[0], findMax(arr.slice(1)));  // сравниваем первый элемент массива с максимумом отсальных элементов рекурсивно(используем для сравнения метод Math.max)
+    return Math.max(arr[0], findMax(arr.slice(1)));  // сравниваем первый элемент массива с максимумом остальных элементов рекурсивно(используем для сравнения метод Math.max)
 };
 
 console.log(findMax(numbers)); //90
