@@ -10,8 +10,7 @@ function startTimer(timerLeft) {
     };
 };
 
-const timerId = setTimeout(startTimer, 1000, 5);
-
+startTimer(5);
 
 // это первый вариант, который я написала, но код менее читаемый и громоздкий
 // function startTimer2(timerLeft) {
@@ -23,8 +22,7 @@ const timerId = setTimeout(startTimer, 1000, 5);
 //     setTimeout(startTimer2, 1000, --timerLeft);
 // };
 
-// const timerId2 = setTimeout(startTimer2, 1000, 5);
-
+// startTimer2(5);
 
 // 2. Напиши функцию, которая использует `setInterval` для вывода сообщения "Не забудь выпить воды!" каждые 30 минут;
 
@@ -43,19 +41,30 @@ const delay = document.getElementById("delay");
 const text = document.getElementById("text");
 const button = document.getElementById("button");
 
-let intervalId = null;  // изначальное состояние - таймер не запущен
+let timeoutId = null;  // изначальное состояние - таймер не запущен
+let lastDelay = 1000;
 
 button.addEventListener("click", () => {
-    if (intervalId === null) {                                                     // если таймер не запущен, то запускаем
-        intervalId = setInterval(logToConsole, Number(delay.value), text.value);
+    if (timeoutId === null) {                                       // если таймер не запущен, то запускаем
+        lastDelay = Number(delay.value);
+        logToConsole();
+        delay.focus();
         button.textContent = "Остановить";
-    } else {                                                      // в другом случае(он запущен) - очищаем и возвращаем в изначальное состояние
-        clearInterval(intervalId);
-        intervalId = null;
+    } else {                                               // в другом случае(он запущен) - очищаем и возвращаем в изначальное состояние
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        delay.value = "";
+        delay.focus();
+        text.value = "";
         button.textContent = "Начать";
     }
 });
 
-function logToConsole(text) {
-    console.log(text);
+function logToConsole() {
+    console.log(text.value);
+    if (delay.value > 0) {
+        timeoutId = setTimeout(logToConsole, Number(delay.value));
+    } else {
+        timeoutId = setTimeout(logToConsole, lastDelay);
+    };
 };
