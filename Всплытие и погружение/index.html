@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling and Capturing</title>
+</head>
+
+<body>
+    <div id="grand-parent" style="border: 1px solid black;width: 200px;padding: 30px;">
+        <div id="parent" style="border: 1px solid black;padding: 30px;">
+            Click <strong id="child" style="border: 1px solid black;">me</strong>
+        </div>
+    </div>
+
+    <form id="form" style="margin-top: 30px;">
+        <input type="text" placeholder="Имя">
+        <input type="text" placeholder="Фамилия">
+        <button type="submit">
+            Отправить
+        </button>
+        <span id="tooltip" style="display: none;color: rgb(228, 12, 12);">
+            Превышено максимально допустимое количество символов!(20)
+        </span>
+    </form>
+
+
+    <style>
+        .error {
+            border: 2px solid rgb(238, 11, 11);
+            background-color: #ffb4b4;
+        }
+    </style>
+
+
+    <script src="./bubbling,capturing.js"></script>
+</body>
+
+</html>
