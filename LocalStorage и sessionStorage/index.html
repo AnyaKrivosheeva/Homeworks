@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage, SessionStorage</title>
+
+    <style>
+        .margin-top {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="form">
+        <input type="text" placeholder="Имя" name="Имя">
+        <input type="text" placeholder="Телефон" name="Телефон">
+        <input type="email" placeholder="Email" name="email">
+        <button type="submit">Сохранить</button>
+    </form>
+    <div id="information"></div>
+
+    <div class="margin-top"><strong>Приложение для учета расходов</strong></div>
+    <form id="expenses-form">
+        <div class="margin-top">
+            <input type="number" placeholder="Сумма" name="Сумма(руб)">
+        </div>
+        <div class="margin-top">
+            <input type="text" placeholder="Описание" name="Описание">
+        </div>
+        <div class="margin-top">
+            <input type="date" name="Дата">
+        </div>
+        <div class="margin-top">
+            <button type="submit">Записать</button>
+        </div>
+    </form>
+    <div id="expenses-list" class="margin-top"></div>
+
+    <div id="counter" class="margin-top">
+        Активная сессия:
+        <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+
+
+    <script src="./localStorage.js"></script>
+</body>
+
+</html>
