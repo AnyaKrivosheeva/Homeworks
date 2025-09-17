@@ -31,10 +31,12 @@ function getInformation() {
 
     const user1 = JSON.parse(localStorage.getItem("user1"));  // получаем данные из хранилища
 
-    for (let key in user1) {                         // выводим данные на экран
-        let p = document.createElement("p");
-        p.textContent = `${key}: ${user1[key]}`;
-        information.append(p);
+    if (user1) {
+        for (let key in user1) {                         // выводим данные на экран
+            let p = document.createElement("p");
+            p.textContent = `${key}: ${user1[key]}`;
+            information.append(p);
+        }
     }
 };
 
@@ -118,7 +120,8 @@ function saveActiveSession() {
 
 const expensesForm = document.getElementById("expenses-form");
 const expensesList = document.getElementById("expenses-list");
-let expenseIdCounter;
+const expensesHeader = document.getElementById("expenses-header");
+let expenseIdCounter = parseInt(localStorage.getItem("ExpensesIdCounter")) || 1;
 let expensesArray = [];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -128,8 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
         expensesArray = savedExpensesList;
         renderExpenses(savedExpensesList);
     }
-
-    expenseIdCounter = parseInt(localStorage.getItem("ExpensesIdCounter")) || 1;
 });
 
 expensesForm.addEventListener("submit", (event) => {
@@ -166,10 +167,11 @@ function saveExpenseToArray() {
 
 function renderExpenses(array) {
     expensesList.innerHTML = "";
-    expensesList.textContent = array.length > 0 ? "Список расходов:" : "";
+
+    expensesHeader.textContent = array.length > 0 ? "Список расходов:" : "";
 
     array.forEach((object) => {
-        let objectDiv = document.createElement('div');
+        let objectDiv = document.createElement("div");
         objectDiv.style.cssText = "display: flex; gap: 15px; margin-top: 15px;";
 
         for (let key in object) {
