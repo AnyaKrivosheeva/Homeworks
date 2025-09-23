@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX и Fetch API</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .form {
+            margin: 20px 0 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .post-result {
+            margin-top: 20px;
+        }
+
+        .all-posts {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .profile-wrapper {
+            margin: 20px 0 0 20px;
+            display: flex;
+            gap: 100px;
+        }
+
+        .user-wrapper {
+            flex-direction: column;
+            display: flex;
+            gap: 15px;
+        }
+
+        .user-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+        <h2>Создание поста</h2>
+        <labeL for="input-user-id">ID пользователя:</labeL>
+        <input type="number" id="input-user-id" name="userId" required min="1">
+
+        <labeL for="input-posts-header">Заголовок:</labeL>
+        <input type="text" id="input-posts-header" name="title" required>
+
+        <labeL for="input-posts-text">Текст:</labeL>
+        <input type="text" id="input-posts-text" name="body" required>
+
+        <button type="submit">Создать пост</button>
+    </form>
+
+    <div class="post-result"></div>
+
+    <div style="margin: 20px;">
+        <button class="get-button">Загрузить все посты</button>
+        <div class="all-posts"></div>
+    </div>
+
+    <div class="profile-wrapper">
+        <div class="user-wrapper">
+            <h2>Профиль пользователя</h2>
+            <div class="user-profile"></div>
+        </div>
+        <form class="user-form">
+            <h2>Редактирование данных профиля</h2>
+            <label for="name-input">Имя:</label>
+            <input type="text" name="name" id="name-input" required>
+
+            <label for="email-input">Email:</label>
+            <input type="email" name="email" id="email-input" required>
+
+            <label for="phone-input">Телефон:</label>
+            <input type="tel" name="phone" id="phone-input" required>
+
+            <button type="submit">Редактировать</button>
+        </form>
+    </div>
+
+
+    <script src="./fetch.js"></script>
+</body>
+
+</html>
