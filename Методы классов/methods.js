@@ -121,7 +121,7 @@ class Order {
         return total;
     }
 
-    getTotal() {     // публичный метод возвращает реузльтат расчетов
+    get total() {     //  возвращает реузльтат расчетов
         return this.#calculateTotal();
     }
 }
@@ -133,9 +133,9 @@ const order1 = new Order();
 order1.addItem(iceCream);   // добавляем товары в заказ
 order1.addItem(bread);
 
-console.log(order1.getTotal()); // 400
+console.log(order1.total); // 400
 
 order1.removeItem("Хлеб"); // удаляем хлеб из корзины
-console.log(order1.getTotal());  // 300
+console.log(order1.total);  // 300
 
 
