@@ -7,14 +7,14 @@ Object.defineProperty(user, "name", {
     value: "Anna",
     writable: false,
     enumerable: true,
-    configurable: true
+    configurable: false
 });
 
 Object.defineProperty(user, "age", {
     value: 27,
     writable: false,
     enumerable: true,
-    configurable: true
+    configurable: false
 });
 
 console.log(user.name); //Anna
